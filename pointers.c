@@ -1,21 +1,29 @@
 #include <stdio.h>
 
+struct node {
+    int data;
+    struct node *next;
+};
+
+typedef struct node Node;
+
+void link (int data)
+{
+    return;
+}
+
+void print_links()
+{
+    return;
+}
+
 int main()
 {
-    int x = 10;
-    int *px = &x;
-    int **ppx = &px;
+    link(32);
+    link(12);
+    link(77);
 
-    printf("\n x = %d", x);
-    printf("\n size of x = %d", sizeof(x));
-    printf("\n addr of x = %zu", &x);
-
-    printf("\n");
-
-    printf("\n px = %zu", px);
-    printf("\n size of px = %d", sizeof(px));
-    printf("\n addr of x = %zu", &px);
-    printf("\n *px = %d", *px);
+    print_links();
 
     return 0;
 }
