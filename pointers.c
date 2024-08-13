@@ -38,6 +38,19 @@ void print_links()
     return;
 }
 
+void free_links()
+{
+    Node *track = head;
+    Node *temp;
+
+    while (track != NULL) {
+       temp = track;
+       track = track->next;
+       free(temp);
+    }
+    return;
+}
+
 int main()
 {
     link(32);
@@ -45,6 +58,7 @@ int main()
     link(77);
 
     print_links();
+    free_links();
 
     return 0;
 }
