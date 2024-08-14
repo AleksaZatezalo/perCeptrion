@@ -10,13 +10,15 @@ typedef struct {
 void add(Circle *c, int data)
 {
     *c->pa = data;
-    if (c->pa != &c->a[BUFFER_SIZE -1]){
-        c->pa++;
-    }
-    else {
-        c->pa = &c->a[0];
-    }
+    // if (c->pa != &c->a[BUFFER_SIZE -1]){
+    //     c->pa++;
+    // }
+    // else {
+    //     c->pa = &c->a[0];
+    // }
     
+    c->pa = (c->pa != &c->a[BUFFER_SIZE - 1]) ? c->pa + 1 : &c->a[0];
+
     return;
 }
 
@@ -25,12 +27,10 @@ int main()
     Circle c = {0};
     c.pa = &c.a[0];
 
-    add(&c, 11);
-    add(&c, 14);
-    add(&c, 15);
-    add(&c, 16);
-    add(&c, 17);
-    add(&c, 13);
+    for (int i = 0; i < 1000000000; i++){
+        add(&c, i);
+        
+    }
 
     for (int i = 0; i < BUFFER_SIZE; i++){
         printf("%d ", c.a[i]);
